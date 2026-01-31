@@ -1,259 +1,492 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Porto - Tailwind Template</title>
-        <link rel="stylesheet" href="assets/animations.css" />
-        <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-            rel="stylesheet"
-        />
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"
-            integrity="sha512-7x3zila4t2qNycrtZ31HO0NnJr8kg2VI67YLoRSyi9hGhRN66FHYWr7Axa9Y1J9tGYHVBPqIjSE1ogHrJTz51g=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        ></script>
-    </head>
 
-    <body class="bg-gray-100">
-        <section
-            class="py-10 container max-w-screen-xl mx-auto px-4 h-screen"
-            style="display: flex; flex-direction: column"
-        >
-            <nav class="flex items-center justify-between">
-                <img src="assets/image/navbar-logo.png" alt="Logo" />
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PatelCS - Blockchain Developer</title>
+    <link rel="stylesheet" href="assets/animations.css" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"
+        integrity="sha512-7x3zila4t2qNycrtZ31HO0NnJr8kg2VI67YLoRSyi9hGhRN66FHYWr7Axa9Y1J9tGYHVBPqIjSE1ogHrJTz51g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        :root {
+            --bg-color: #ECF0F3;
+            --accent-color: #FF014F;
+            --heading-color: #1E2125;
+            --body-color: #3C3E41;
+            --shadow-dark: #D1D9E6;
+            --shadow-light: #FFFFFF;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+        }
+        .neumorphic {
+            background: linear-gradient(145deg, #e2e8ec, #ffffff);
+            box-shadow: 5px 5px 15px var(--shadow-dark), -5px -5px 15px var(--shadow-light);
+        }
+        .neumorphic:hover {
+            box-shadow: inset 5px 5px 15px var(--shadow-dark), inset -5px -5px 15px var(--shadow-light);
+        }
+        .accent-text {
+            color: var(--accent-color);
+        }
+    </style>
+</head>
 
-                <a
-                    class="px-7 py-3 md:px-9 md:py-4 bg-white font-medium md:font-semibold text-gray-700 text-md rounded-md hover:bg-gray-700 hover:text-white transition ease-linear duration-500"
-                    href="assets/resume.pdf"
-                    target="_blank"
-                >
-                    Get my CV
-                </a>
+<body>
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background-color: var(--bg-color);">
+        <div class="container max-w-screen-xl mx-auto px-4 md:px-8">
+            <nav class="flex items-center py-6 md:py-8">
+                <div class="flex items-center gap-3">
+                    <img class="w-10 h-10 rounded-full object-cover" src="assets/image/profile.jpg" alt="Logo" />
+                    <span class="font-bold text-lg uppercase tracking-wider" style="color: var(--heading-color);">PatelCS</span>
+                </div>
+
+                <ul class="hidden md:flex items-center gap-8 ml-auto mr-10">
+                    <li>
+                        <a href="#home" class="font-medium text-sm uppercase tracking-wider transition-colors duration-300 hover:text-[#FF014F]" style="color: var(--heading-color);">Home</a>
+                    </li>
+                    <li>
+                        <a href="#experience" class="font-medium text-sm uppercase tracking-wider transition-colors duration-300 hover:text-[#FF014F]" style="color: var(--heading-color);">Experience</a>
+                    </li>
+                    <li>
+                        <a href="#projects" class="font-medium text-sm uppercase tracking-wider transition-colors duration-300 hover:text-[#FF014F]" style="color: var(--heading-color);">Projects</a>
+                    </li>
+                    <li>
+                        <a href="#skills" class="font-medium text-sm uppercase tracking-wider transition-colors duration-300 hover:text-[#FF014F]" style="color: var(--heading-color);">Skills</a>
+                    </li>
+                    <li>
+                        <a href="#education" class="font-medium text-sm uppercase tracking-wider transition-colors duration-300 hover:text-[#FF014F]" style="color: var(--heading-color);">Education</a>
+                    </li>
+                </ul>
+
+                <div class="flex items-center gap-4 ml-auto md:ml-0">
+                    <a class="neumorphic px-6 py-3 font-medium text-sm rounded-lg transition-all duration-300 hidden md:block"
+                        style="color: var(--heading-color);"
+                        href="assets/ChiragPatel_Resume.pdf" target="_blank">
+                        Get my CV
+                    </a>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="menu-toggle" class="md:hidden neumorphic w-12 h-12 flex items-center justify-center rounded-lg">
+                        <i data-feather="menu" class="w-5 h-5" style="color: var(--heading-color);"></i>
+                    </button>
+                </div>
             </nav>
 
-            <div
-                class="text-center"
-                style="
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    height: 100%;
-                "
-            >
-                <div class="flex justify-center ">
-                    <img class="rounded-full" src="assets/image/profile.jpg" alt="Image" />
-                </div>
-
-                <h6
-                    class="font-medium text-gray-600 text-lg md:text-2xl uppercase mt-3"
-                >
-                    Chirag Patel
-                </h6>
-
-                <h1
-                    class="font-normal text-gray-900 text-4xl md:text-7xl leading-none"
-                >
-                    Web Developer
-                </h1>
-
-                <p class="font-normal text-gray-600 text-md md:text-xl mt-2">
-                    I am a full stack developer with a passion for Al and machine learning. My focus is on creating efficient and effective products by following best practices. 
-                </p>
-
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="hidden md:hidden py-4">
+                <ul class="flex flex-col gap-4">
+                    <li>
+                        <a href="#home" class="block font-medium text-sm uppercase tracking-wider py-2 transition-colors duration-300 hover:text-[#FF014F]" style="color: var(--heading-color);">Home</a>
+                    </li>
+                    <li>
+                        <a href="#experience" class="block font-medium text-sm uppercase tracking-wider py-2 transition-colors duration-300 hover:text-[#FF014F]" style="color: var(--heading-color);">Experience</a>
+                    </li>
+                    <li>
+                        <a href="#projects" class="block font-medium text-sm uppercase tracking-wider py-2 transition-colors duration-300 hover:text-[#FF014F]" style="color: var(--heading-color);">Projects</a>
+                    </li>
+                    <li>
+                        <a href="#skills" class="block font-medium text-sm uppercase tracking-wider py-2 transition-colors duration-300 hover:text-[#FF014F]" style="color: var(--heading-color);">Skills</a>
+                    </li>
+                    <li>
+                        <a href="#education" class="block font-medium text-sm uppercase tracking-wider py-2 transition-colors duration-300 hover:text-[#FF014F]" style="color: var(--heading-color);">Education</a>
+                    </li>
+                    <li>
+                        <a class="inline-block neumorphic px-6 py-3 font-medium text-sm rounded-lg mt-2"
+                            style="color: var(--heading-color);"
+                            href="assets/resume.pdf" target="_blank">
+                            Get my CV
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </section>
+        </div>
+    </header>
 
-        <section class="py-10 md:py-16">
-            <div class="container max-w-screen-xl mx-auto px-4">
-                <div class="flex flex-col lg:flex-row justify-between">
-                    <div class="mb-10 lg:mb-0 w-full">
-                        <h1
-                            class="font-medium text-gray-700 text-3xl md:text-4xl mb-5"
-                        >
-                            Projects
-                        </h1>
-
-                        <p
-                            class="font-normal text-gray-500 text-xs md:text-base"
-                        >
-                            I have brought here my biggest and favorite works
-                            <br />
-                            as a professional.
-                        </p>
-                    </div>
-
-                    <div class="space-y-24 w-full">
-                        <div class="flex space-x-6">
-                            <h1
-                                class="font-normal text-gray-700 text-3xl md:text-4xl"
-                            >
-                                01
-                            </h1>
-
-                            <span class="w-28 h-0.5 bg-gray-300 mt-5"></span>
-
-                            <div>
-                                <h1
-                                    class="font-normal text-gray-700 text-3xl md:text-4xl mb-5"
-                                >
-                                    Digital Ledger App
-                                </h1>
-
-                                <p
-                                    class="font-normal text-gray-500 text-sm md:text-base"
-                                >
-                                An app inspired by KhataBook, where both users can view
-                                and add transactions to the same account, unlike
-                                KhataBook which allows only one user to manage
-                                transactions.
+    <section id="home" class="min-h-screen pt-28 md:pt-36 pb-12 flex flex-col justify-center">
+                    <div class="container max-w-screen-xl mx-auto px-4 md:px-8 flex flex-col flex-1">
+                        <!-- Hero Section -->
+                        <div class="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-20 flex-1 py-10">
+                            <div class="text-center md:text-left order-2 md:order-1 flex-1">
+                                <p class="font-medium text-sm md:text-base uppercase tracking-widest mb-4" style="color: var(--body-color);">
+                                    WELCOME TO MY WORLD
                                 </p>
-                            </div>
-                        </div>
-                        <div class="flex space-x-6">
-                            <h1
-                                class="font-normal text-gray-700 text-3xl md:text-4xl"
-                            >
-                                02
-                            </h1>
-
-                            <span class="w-28 h-0.5 bg-gray-300 mt-5"></span>
-
-                            <div>
-                                <h1
-                                    class="font-normal text-gray-700 text-3xl md:text-4xl mb-5"
-                                >
-                                Quick Quotes
+            
+                                <h1 class="font-bold text-4xl md:text-5xl lg:text-6xl leading-tight" style="color: var(--heading-color);">
+                                    Hi, I'm <span class="accent-text">Chirag Patel</span>
                                 </h1>
-                                <p
-                                    class="font-normal text-gray-500 text-sm md:text-base"
-                                >
-                                A quote website where users can add and delete quotes. Built with NextJS and MongoDB, and used NextAuth for user authentication.
+            
+                                <h2 class="font-semibold text-xl md:text-2xl lg:text-3xl mt-4" style="color: var(--heading-color);">
+                                    a <span id="typewriter" class="accent-text"></span><span class="animate-pulse accent-text">|</span>
+                                </h2>
+            
+                                <p class="font-normal text-base md:text-lg mt-6 max-w-xl mx-auto md:mx-0 leading-relaxed" style="color: var(--body-color);">
+                                    Blockchain Developer with nearly a year of experience specializing in EVM-based smart contracts. Passionate about DeFi, cross-chain interoperability, and building scalable systems on Ethereum and L2s.
                                 </p>
-                            </div>
+            
+                                <!-- Social Icons -->
+                                <div class="mt-8">
+                                    <p class="font-medium text-xs uppercase tracking-widest mb-4" style="color: var(--body-color);">CONNECT WITH ME</p>
+                        <div class="flex items-center justify-center md:justify-start gap-4">
+                            <a href="https://github.com/patelcs" target="_blank"
+                                class="neumorphic w-14 h-14 flex items-center justify-center rounded-lg transition-all duration-300">
+                                <i data-feather="github" class="w-5 h-5" style="color: var(--heading-color);"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/chirag389817/" target="_blank"
+                                class="neumorphic w-14 h-14 flex items-center justify-center rounded-lg transition-all duration-300">
+                                <i data-feather="linkedin" class="w-5 h-5" style="color: var(--heading-color);"></i>
+                            </a>
+                            <a href="https://www.instagram.com/csp389817" target="_blank"
+                                class="neumorphic w-14 h-14 flex items-center justify-center rounded-lg transition-all duration-300">
+                                <i data-feather="instagram" class="w-5 h-5" style="color: var(--heading-color);"></i>
+                            </a>
+                            <a href="mailto:me@patelcs.in"
+                                class="neumorphic w-14 h-14 flex items-center justify-center rounded-lg transition-all duration-300">
+                                <i data-feather="mail" class="w-5 h-5" style="color: var(--heading-color);"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section class="py-10 md:py-16">
-            <div class="container max-w-screen-xl mx-auto px-4">
-                <h1 class="font-medium text-gray-700 text-3xl md:text-4xl mb-5">
-                    Education
-                </h1>
-
-                <p class="font-normal text-gray-500 text-xs md:text-base mb-20">
-                    Below is a summary of the places I studied
-                </p>
-
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-                >
-                    <div class="bg-gray-50 px-8 py-10 rounded-md">
-                        <h4 class="font-medium text-gray-700 text-lg mb-4">
-                            2021 – 2025
-                        </h4>
-                        <h5 class="text-gray-500 text-md font-bold">
-                            B.E. in Computer Engineering
-                        </h5>
-                        <h6 class="font-semibold text-gray-500 text-md">
-                            L.D. College of Engineering - Ahmedabad
-                        </h6>
-                        <p class="font-normal text-gray-500 text-md mb-4">
-                            CGPA: 8.16
-                        </p>
-                    </div>
-                    <div class="bg-gray-50 px-8 py-10 rounded-md">
-                        <h4 class="font-medium text-gray-700 text-lg mb-4">
-                            2019 – 2021
-                        </h4>
-                        <h5 class="text-gray-500 text-md font-bold">
-                            HSC with PCM
-                        </h5>
-                        <h6 class="font-semibold text-gray-500 text-md">
-                            AB School - Chikhli 
-                        </h6>
-                        <p class="font-normal text-gray-500 text-md mb-4">
-                            Percentage: 94
-                        </p>
-                    </div>
-                    <div class="bg-gray-50 px-8 py-10 rounded-md">
-                        <h4 class="font-medium text-gray-700 text-lg mb-4">
-                            2017 – 2019
-                        </h4>
-                        <h5 class="text-gray-500 text-md font-bold">
-                            Secondary School SSC
-                        </h5>
-                        <h6 class="font-semibold text-gray-500 text-md">
-                            Shree Gurukul Vidhyalaya - Vansda
-                        </h6>
-                        <p class="font-normal text-gray-500 text-md mb-4">
-                            Percentage: 92
-                        </p>
+                <div class="order-1 md:order-2 flex-shrink-0">
+                    <div class="neumorphic p-2 rounded-full">
+                        <img class="rounded-full w-56 h-56 md:w-72 md:h-72 lg:w-96 lg:h-96 object-cover" src="assets/image/profile.jpg" alt="Chirag Patel" />
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-        <footer class="py-10 md:py-16 mb-20 md:mb-40 lg::mb-52">
-            <div class="container max-w-screen-xl mx-auto px-4">
+    <section id="experience" class="py-16 md:py-24">
+        <div class="container max-w-screen-xl mx-auto px-4 md:px-8">
+            <h1 class="font-bold text-3xl md:text-4xl mb-3" style="color: var(--heading-color);">
+                Experience
+            </h1>
 
-                    <p
-                        class="font-normal text-gray-400 text-md text-center md:text-lg mb-20"
-                    >
-                        I’m open to take on new freelance work, feel free to contact me.
+            <p class="font-normal text-sm md:text-base mb-12" style="color: var(--body-color);">
+                My professional journey in blockchain development
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="neumorphic px-8 py-10 rounded-xl">
+                    <h4 class="font-medium text-lg mb-3 accent-text">
+                        Sep 2025 – Present
+                    </h4>
+                    <h5 class="font-bold text-xl mb-1" style="color: var(--heading-color);">
+                        Software Developer
+                    </h5>
+                    <h6 class="font-semibold text-base mb-4" style="color: var(--body-color);">
+                        Knackroot Technolabs LLP
+                    </h6>
+                    <p class="font-normal text-base leading-relaxed" style="color: var(--body-color);">
+                        Building decentralized trading platforms with leverage & liquidation engines. Developed cross-chain meme tokens using SuperchainERC20, gas-efficient Merkle Airdrop systems, and integrated World ID for Sybil-resistant identity verification.
                     </p>
+                </div>
+                <div class="neumorphic px-8 py-10 rounded-xl">
+                    <h4 class="font-medium text-lg mb-3 accent-text">
+                        Feb 2025 – Aug 2025
+                    </h4>
+                    <h5 class="font-bold text-xl mb-1" style="color: var(--heading-color);">
+                        Intern
+                    </h5>
+                    <h6 class="font-semibold text-base mb-4" style="color: var(--body-color);">
+                        Knackroot Technolabs LLP
+                    </h6>
+                    <p class="font-normal text-base leading-relaxed" style="color: var(--body-color);">
+                        Gained hands-on experience in blockchain & Web3 development. Focused on Solidity smart contracts with gas-efficient algorithms, security best practices, and implemented upgradeable contracts using proxy patterns.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <div class="flex items-center justify-center gap-14">
+    <section id="projects" class="py-16 md:py-24">
+        <div class="container max-w-screen-xl mx-auto px-4 md:px-8">
+            <h1 class="font-bold text-3xl md:text-4xl mb-3" style="color: var(--heading-color);">
+                Projects
+            </h1>
 
-                        <a
-                            href="https://github.com/chirag389817"
-                            class="w-16 h-16 flex items-center justify-center rounded-full hover:bg-gray-200 transition ease-in-out duration-500"
-                        >
-                            <i
-                                data-feather="github"
-                                class="text-gray-500 hover:text-gray-700 transition ease-in-out duration-500"
-                            ></i>
-                        </a>
-                        <a
-                            href="https://www.linkedin.com/in/chirag389817/"
-                            class="w-16 h-16 flex items-center justify-center rounded-full hover:bg-gray-200 transition ease-in-out duration-500"
-                        >
-                            <i
-                                data-feather="linkedin"
-                                class="text-gray-500 hover:text-gray-700 transition ease-in-out duration-500"
-                            ></i>
-                        </a>
-                        <a
-                            href="https://www.instagram.com/csp389817"
-                            class="w-16 h-16 flex items-center justify-center rounded-full hover:bg-gray-200 transition ease-in-out duration-500"
-                        >
-                            <i
-                                data-feather="instagram"
-                                class="text-gray-500 hover:text-gray-700 transition ease-in-out duration-500"
-                            ></i>
-                        </a>
+            <p class="font-normal text-sm md:text-base mb-12" style="color: var(--body-color);">
+                I have brought here my biggest and favorite works as a professional
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="neumorphic px-8 py-10 rounded-xl">
+                    <span class="font-bold text-5xl accent-text opacity-30">01</span>
+                    <h3 class="font-bold text-2xl mt-4 mb-4" style="color: var(--heading-color);">
+                        Digital Ledger App
+                    </h3>
+                    <p class="font-normal text-base leading-relaxed" style="color: var(--body-color);">
+                        An app inspired by KhataBook, where both users can view and add transactions to the same account, unlike KhataBook which allows only one user to manage transactions.
+                    </p>
+                </div>
+                <div class="neumorphic px-8 py-10 rounded-xl">
+                    <span class="font-bold text-5xl accent-text opacity-30">02</span>
+                    <h3 class="font-bold text-2xl mt-4 mb-4" style="color: var(--heading-color);">
+                        Quick Quotes
+                    </h3>
+                    <p class="font-normal text-base leading-relaxed" style="color: var(--body-color);">
+                        A quote website where users can add and delete quotes. Built with NextJS and MongoDB, and used NextAuth for user authentication.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-16 md:py-24">
+        <div class="container max-w-screen-xl mx-auto px-4 md:px-8">
+            <h1 class="font-bold text-3xl md:text-4xl mb-3" style="color: var(--heading-color);">
+                Skills
+            </h1>
+
+            <p class="font-normal text-sm md:text-base mb-12" style="color: var(--body-color);">
+                Technologies and tools I work with
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="neumorphic px-8 py-8 rounded-xl">
+                    <h5 class="font-bold text-lg mb-3 accent-text">
+                        Core Blockchain
+                    </h5>
+                    <p class="font-normal text-base leading-relaxed" style="color: var(--body-color);">
+                        Ethereum L1 / L2s, Solidity,
+                        <br>
+                        Foundry, Hardhat, 
+                        <br>
+                        OpenZeppelin, Subgraph, 
+                        <br>
+                        Proxy Patterns (UUPS, Transparent)
+                    </p>
+                </div>
+                <div class="neumorphic px-8 py-8 rounded-xl">
+                    <h5 class="font-bold text-lg mb-3 accent-text">
+                        DeFi & Architecture
+                    </h5>
+                    <p class="font-normal text-base leading-relaxed" style="color: var(--body-color);">
+                        ERC20, ERC721, ERC1155, EIP-712,
+                        <br>
+                        Uniswap V2/V3/V4 (Hooks),
+                        <br>
+                        Chainlink (Oracles, Automation), Stablecoins, Merkle Proofs
+                    </p>
+                </div>
+                <div class="neumorphic px-8 py-8 rounded-xl">
+                    <h5 class="font-bold text-lg mb-3 accent-text">
+                        L2 Ecosystems
+                    </h5>
+                    <p class="font-normal text-base leading-relaxed" style="color: var(--body-color);">
+                        OP Stack (Optimism), World Chain, 
+                        <br>
+                        Cross-Chain Bridging, 
+                        <br>
+                        SuperchainERC20
+                    </p>
+                </div>
+                <div class="neumorphic px-8 py-8 rounded-xl">
+                    <h5 class="font-bold text-lg mb-3 accent-text">
+                        Backend & Database
+                    </h5>
+                    <p class="font-normal text-base leading-relaxed" style="color: var(--body-color);">
+                        Node.js, Express.js, 
+                        <br>
+                        MongoDB, SQL, GraphQL
+                    </p>
+                </div>
+                <div class="neumorphic px-8 py-8 rounded-xl">
+                    <h5 class="font-bold text-lg mb-3 accent-text">
+                        Languages
+                    </h5>
+                    <p class="font-normal text-base leading-relaxed" style="color: var(--body-color);">
+                        Solidity, Rust,
+                        JavaScript, TypeScript,
+                        Java, Python
+                    </p>
+                </div>
+                <div class="neumorphic px-8 py-8 rounded-xl">
+                    <h5 class="font-bold text-lg mb-3 accent-text">
+                        Frontend & Tools
+                    </h5>
+                    <p class="font-normal text-base leading-relaxed" style="color: var(--body-color);">
+                        React.js, Next.js, Tailwind CSS, Git/GitHub, Docker, AWS, Vercel
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="py-16 md:py-24">
+        <div class="container max-w-screen-xl mx-auto px-4 md:px-8">
+            <h1 class="font-bold text-3xl md:text-4xl mb-3" style="color: var(--heading-color);">
+                Education
+            </h1>
+
+            <p class="font-normal text-sm md:text-base mb-12" style="color: var(--body-color);">
+                Below is a summary of the places I studied
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="neumorphic px-8 py-10 rounded-xl">
+                    <h4 class="font-medium text-lg mb-3 accent-text">
+                        2021 – 2025
+                    </h4>
+                    <h5 class="font-bold text-xl mb-1" style="color: var(--heading-color);">
+                        B.E. in Computer Engineering
+                    </h5>
+                    <h6 class="font-semibold text-base mb-3" style="color: var(--body-color);">
+                        L.D. College of Engineering - Ahmedabad
+                    </h6>
+                    <p class="font-normal text-base" style="color: var(--body-color);">
+                        CGPA: 8.16
+                    </p>
+                </div>
+                <div class="neumorphic px-8 py-10 rounded-xl">
+                    <h4 class="font-medium text-lg mb-3 accent-text">
+                        2019 – 2021
+                    </h4>
+                    <h5 class="font-bold text-xl mb-1" style="color: var(--heading-color);">
+                        HSC with PCM
+                    </h5>
+                    <h6 class="font-semibold text-base mb-3" style="color: var(--body-color);">
+                        AB School - Chikhli
+                    </h6>
+                    <p class="font-normal text-base" style="color: var(--body-color);">
+                        Percentage: 94
+                    </p>
+                </div>
+                <div class="neumorphic px-8 py-10 rounded-xl">
+                    <h4 class="font-medium text-lg mb-3 accent-text">
+                        2017 – 2019
+                    </h4>
+                    <h5 class="font-bold text-xl mb-1" style="color: var(--heading-color);">
+                        Secondary School SSC
+                    </h5>
+                    <h6 class="font-semibold text-base mb-3" style="color: var(--body-color);">
+                        Shree Gurukul Vidhyalaya - Vansda
+                    </h6>
+                    <p class="font-normal text-base" style="color: var(--body-color);">
+                        Percentage: 92
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="py-16 md:py-24">
+            <div class="container max-w-screen-xl mx-auto px-4 md:px-8 text-center">
+
+                <h2 class="font-bold text-2xl md:text-3xl mb-4" style="color: var(--heading-color);">
+                    Let's Work Together
+                </h2>
+
+                <p class="font-normal text-base md:text-lg mb-10" style="color: var(--body-color);">
+                    I'm open to take on new freelance work, feel free to contact me.
+                </p>
+
+                <div class="flex items-center justify-center gap-6 mb-8">
+                    <a href="https://github.com/patelcs" target="_blank"
+                        class="neumorphic w-14 h-14 flex items-center justify-center rounded-lg transition-all duration-300">
+                        <i data-feather="github" class="w-5 h-5" style="color: var(--heading-color);"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/chirag389817/" target="_blank"
+                        class="neumorphic w-14 h-14 flex items-center justify-center rounded-lg transition-all duration-300">
+                        <i data-feather="linkedin" class="w-5 h-5" style="color: var(--heading-color);"></i>
+                    </a>
+                    <a href="https://www.instagram.com/csp389817" target="_blank"
+                        class="neumorphic w-14 h-14 flex items-center justify-center rounded-lg transition-all duration-300">
+                        <i data-feather="instagram" class="w-5 h-5" style="color: var(--heading-color);"></i>
+                    </a>
+                    <a href="mailto:me@patelcs.in"
+                        class="neumorphic w-14 h-14 flex items-center justify-center rounded-lg transition-all duration-300">
+                        <i data-feather="mail" class="w-5 h-5" style="color: var(--heading-color);"></i>
+                    </a>
                 </div>
 
-                <a class="font-bold text-gray-500 text-lg mt-2 flex justify-center items-center gap-4" href="mailto:chirag389817@gmail.com">
-                    <i
-                                data-feather="mail"
-                                class="text-gray-500 hover:text-gray-700 transition ease-in-out duration-500"
-                            ></i>
-                    chirag389817@gmail.com
+                <a class="font-semibold text-lg accent-text hover:underline"
+                    href="mailto:me@patelcs.in">
+                    me@patelcs.in
                 </a>
+
+                <p class="font-normal text-sm mt-12" style="color: var(--body-color);">
+                    © 2025 PatelCS. All rights reserved.
+                </p>
             </div>
         </footer>
 
         <script>
             feather.replace();
+            
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu when clicking a link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Navbar scroll effect
+            const navbar = document.getElementById('navbar');
+            const navElement = navbar.querySelector('nav');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.style.boxShadow = '0 10px 30px -10px rgba(0,0,0,0.1)';
+                } else {
+                    navbar.style.boxShadow = 'none';
+                }
+            });
+
+            // Typewriter Effect
+            const textElement = document.getElementById('typewriter');
+            const roles = ['Blockchain Developer.', 'Professional Coder.', 'DeFi Researcher.'];
+            let roleIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let typeSpeed = 100;
+
+            function type() {
+                const currentRole = roles[roleIndex];
+                
+                if (isDeleting) {
+                    textElement.textContent = currentRole.substring(0, charIndex - 1);
+                    charIndex--;
+                    typeSpeed = 50;
+                } else {
+                    textElement.textContent = currentRole.substring(0, charIndex + 1);
+                    charIndex++;
+                    typeSpeed = 100;
+                }
+
+                if (!isDeleting && charIndex === currentRole.length) {
+                    isDeleting = true;
+                    typeSpeed = 2000; // Pause at end
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    roleIndex = (roleIndex + 1) % roles.length;
+                    typeSpeed = 500; // Pause before new word
+                }
+
+                setTimeout(type, typeSpeed);
+            }
+
+            // Start typing
+            document.addEventListener('DOMContentLoaded', type);
         </script>
-    </body>
+</body>
+
 </html>
